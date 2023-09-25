@@ -25,7 +25,7 @@
   + CreateNewList
     - name: name of the task
     - check: boolean
- ## Screens location: templates >> main (use of jinga2):
+ ## Screens location: templates >> main (use of jinja2):
   + base.html (parent template): others extend this template
      - bootstraps
      - custom static CSS:: location: static/css/styles.css
