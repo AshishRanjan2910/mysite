@@ -27,6 +27,8 @@
     - check: boolean
  -- Screens location: templates >> main (use of jinga2):
   + base.html (parent template): others extend this template
+     - bootstraps
+     - custom static CSS:: location: static/css/styles.css
   + home.html
   + lists.html
   + create.html
