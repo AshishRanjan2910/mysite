@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    Views List
+{% endblock %}
+
+{% block content %}
+    <h1>{{ ln.name }}</h1>
+    <!--"#" in action means to send post request to index (default, "") page-->
+    <form method="post" action="#">
+        {% csrf_token %}
+        {% for task in ln.item_set.all %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    {% if task.completed is True %}
+                        <input type="checkbox" value="clicked" name="c{{task.id}}" class="form-check-input" checked>
+                    {% else %}
+                        <input type="checkbox" value="clicked" name="c{{task.id}}" class="form-check-input">
+                    {% endif %}
+                </div>
+            </div>
+            <input type="text" value="{{task.task}}" class="form-control">
+        </div>
+        {% endfor %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button type="submit" name="newItem" value="newItem" class="btn btn-success">Add Item</button>
+            </div>
+            <input type="text" name="new">
+        </div>
+
+        <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
+    </form>
+{% endblock %}
+
